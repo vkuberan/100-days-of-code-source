@@ -1,0 +1,7 @@
+[client]
+database=beginning_django
+user=root
+password=google
+HOST=localhost
+PORT=3306
+default-charset=utf16
