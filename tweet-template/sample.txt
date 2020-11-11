@@ -1,0 +1,3 @@
+Day {} of #100DaysOfCode "Generate Fake Data for Django Models thro' command line"
+#python #django #generatedata #webdevelopment #mysql
+Check the Code: https://github.com/vkuberan/100-days-of-code-source/tree/main/day-4/python/beginning_django
