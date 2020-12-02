@@ -20,9 +20,17 @@ random = np.random.random([3, 3])
 # np.random.randint()
 randint = np.random.randint(1, 100, (3, 3))
 
+# np.full() => repeat the last with previous number of times
+full = np.full(4, 5)
+multifull = np.full((3, 3), 5)
+
+# np.eye() => identity matrix
+eye = np.eye(5, dtype=int)
+
 # np.inspace()
-# np.full()
-# np.eye()
+linspace = np.linspace(1, 100, 15, dtype=int)
+
+
 # np.title()
 
 print("ARange Increment: {}".format(increment))
@@ -33,3 +41,7 @@ print("\n\nOnes: \n{}".format(ones))
 print("\n\nMultidimentional Ones: \n{}".format(multiones))
 print("\n\nRandom Array: \n{}".format(random))
 print("\n\nRandom Array Int: \n{}".format(randint))
+print("\n\nFull: \n{}".format(full))
+print("\n\nMultiDimentional Full: \n{}".format(multifull))
+print("\n\nEye: \n{}".format(eye))
+print("\n\nLinspace: \n{}".format(linspace))
