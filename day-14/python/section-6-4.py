@@ -30,8 +30,9 @@ eye = np.eye(5, dtype=int)
 # np.inspace()
 linspace = np.linspace(1, 100, 15, dtype=int)
 
-
-# np.title()
+# np.tile()
+tile = np.tile([1, 3, 5], 3)
+multitile = np.tile([1, 3, 5], (3, 3, 5))
 
 print("ARange Increment: {}".format(increment))
 print("\n\nARange Decrement: {}".format(decrement))
@@ -45,3 +46,5 @@ print("\n\nFull: \n{}".format(full))
 print("\n\nMultiDimentional Full: \n{}".format(multifull))
 print("\n\nEye: \n{}".format(eye))
 print("\n\nLinspace: \n{}".format(linspace))
+print("\n\nTile: \n{}".format(tile))
+print("\n\nMultidimentional Tile: \n{}".format(multitile))
