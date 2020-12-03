@@ -5,5 +5,9 @@ import numpy as np
 
 array_2d = np.array([np.arange(1, 10), np.arange(11, 20), np.arange(21, 30)])
 print("Array: \n{}\n".format(array_2d))
-print("Access Element using Simple Indexing(row, column): {}".format(
+print("Get Column using Simple Indexing(row, column): {}".format(
     array_2d[2, 5]))
+print("Get Entire Row using index array_2d[1] or array_2d[1, :]: {}".format(
+    array_2d[1]))
+print("Get Entire Column using index array_2d[:, 1]: {}".format(
+    array_2d[:, 1]))
