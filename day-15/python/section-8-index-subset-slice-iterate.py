@@ -11,3 +11,7 @@ print(
 print(
     "Another way: Get Section of (start index - end index) of the Array: {}".format(array_1d[[2, 3, 4]]))
 print("Subset with Increment of two: {}".format(array_1d[0::2]))
+print("Iteration Started:")
+for i in array_1d:
+    print(i)
+print("End of Iteration.")
