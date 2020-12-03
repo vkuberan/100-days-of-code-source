@@ -7,7 +7,7 @@ import numpy as np
 # ndim: Number of axes(of dimensions).
 
 structuresOfArray = np.ones((5, 3))
-print("Sample Array: \n{}\n\n\n".format(structuresOfArray))
+print("Sample Array: \n{}".format(structuresOfArray))
 print("Data Type: {}".format(structuresOfArray.dtype))
 print("Item Size: {}".format(structuresOfArray.itemsize))
 print("N Dimention: {}".format(structuresOfArray.ndim))
