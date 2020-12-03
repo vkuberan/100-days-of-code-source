@@ -14,3 +14,13 @@ print("Get Entire Column using index array_2d[:, 1]: {}".format(
 print("Differnt Access 1 array_2d[:2, :]: {}".format(array_2d[:2, :]))
 print("Differnt Access 2 array_2d[:2, 1:5]: {}".format(array_2d[:2, 1:5]))
 print("Differnt Access 3 array_2d[:, 3:8]: {}".format(array_2d[:, 3:8]))
+
+print("Iteration of 2d Array: ")
+
+print("Row")
+for row in array_2d:
+    print(row)
+
+print("Column (1, 5)")
+for column in array_2d:
+    print(column[1:5])
