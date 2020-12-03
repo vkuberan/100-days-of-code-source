@@ -15,3 +15,5 @@ print("Array Shape: {}".format(structuresOfArray.shape))
 
 # Creating a 3-D array. Difficult to print it.
 # reshape() simply reshape a 1-D array.
+array_3d = np.arange(12).reshape(2, 3, 2)
+print("\n\nReshape: \n{}".format(array_3d))
