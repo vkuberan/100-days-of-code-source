@@ -22,21 +22,23 @@ while continueProgram != "N":
                 "Range of the list (minimum, maximum): ").strip().split(",")[0:2]]
 
             if minimum <= 0 or maximum <= 0:
-                minimum, maximum = 1, 10
+                minimum, maximum = 1, 100000
             elif minimum >= maximum:
                 minimum, maximum = maximum, minimum
 
         except:
-            minimum, maximum = 1, 10
+            minimum, maximum = 1, 100000
 
-    print("List Size: {}".format(maxListSize))
-    print("List Data Type: {}".format(typeOfList))
-    print("Manual or Random: {}".format(manualOrRandom))
+    print("Array Size: {}".format(maxListSize))
+    print("Array Data Type: {}".format(
+        "Float" if typeOfList == 'F' else "Integer"))
+    print("Manual or Random: {}".format(
+        "Random" if manualOrRandom == 'R' else "Manual"))
     if manualOrRandom == 'R':
-        print("minimum: {}, maximum: {}".format(minimum, maximum))
+        print("Random Minimum: {}, Random Maximum: {}".format(minimum, maximum))
 
     continueProgram = input(
-        "Any key to continue or N(o) to terminimumate... ").strip().upper()
+        "Any key to continue or N(o) to terminate... ").strip().upper()
     clear_screen()
 
 print("End of Program.")
