@@ -5,20 +5,30 @@ print("Welcome to NumPy 'Single Dimentional Array' Demo")
 
 continueProgram = "Y"
 
-while continueProgram == "Y":
-    try:
-        min, max = input(
-            "Enter Minimum, Maximum value for the list Ex: (10, 20): ").strip().split(",")
-        if min <= 0 or max <= 0:
-            min, max = 1, 10
-        if min >= max:
-            min, max = (max - 1), min
-    except:
-        min, max = 1, 10
+while continueProgram != "N":
 
-    print("Min: {}, Max: {}".format(min, max))
+    try:
+
+        minimum, maximum = map(int, input(
+            "Range of the list (minimum, maximum): ").strip().split(",")) or 1, 10
+        typeOfList = input(
+            "Date Type of list: F float or any key for Integer: ").strip() or 'I'
+        manualOrRandom = input(
+            "Generate List Data: any key for Random or M for manual: ").strip() or 'R'
+
+        if minimum <= 0 or maximum <= 0:
+            minimum, maximum = 1, 10
+        elif minimum >= maximum:
+            minimum, maximum = maximum, minimum
+
+    except:
+        minimum, maximum = 1, 10
+
+    print("minimum: {}, maximum: {}".format(minimum, maximum))
+    print("List Data Type: {}".format(typeOfList))
+    print("Manual or Random: {}".format(manualOrRandom))
 
     continueProgram = input(
-        "Y(es) to continue or any key to terminate... ").strip().upper()
+        "Any key to continue or N(o) to terminimumate... ").strip().upper()
 
 print("End of Program.")
