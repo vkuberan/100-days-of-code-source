@@ -1,4 +1,4 @@
-# A small program to demostrate some of the basic NumPy functionalities
+# A small program to demostrate all NumPy functionalities
 from helper import *
 
 print("Welcome to NumPy 'Single Dimentional Array' Demo")
