@@ -16,8 +16,10 @@ while continueProgram != "N":
     if manualOrRandom == 'R':
 
         try:
-            minimum, maximum = map(int, input(
-                "Range of the list (minimum, maximum): ").strip().split(","))
+            # minimum, maximum = map(int, input(
+            #     "Range of the list (minimum, maximum): ").strip().split(","))
+            minimum, maximum = [int(x) for x in input(
+                "Range of the list (minimum, maximum): ").strip().split(",")[0:2]]
 
             if minimum <= 0 or maximum <= 0:
                 minimum, maximum = 1, 10
