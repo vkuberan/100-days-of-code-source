@@ -1,7 +1,7 @@
 import numpy as np
 import time
 
-# Section 9 - Execution speed of NumPy compared with Stanadard Python
+# Section 9 - Execution speed of NumPy compared with Standard Python
 # Point to Remember: If you initialize an arrays directly using np.array
 # it will take some time.
 
