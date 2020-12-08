@@ -7,11 +7,18 @@ continueProgram = "Y"
 
 while continueProgram != "N":
 
-    maxListSize = int(input("Maximum List Size: ").strip() or "25")
+    maxListSize = int(
+        input("Maximum List Size (Min: 25, Max: 9999999): ").strip() or "25")
+
+    if maxListSize <= 25:
+        maxListSize = 25
+    elif maxListSize >= 9999999:
+        maxListSize = 9999999
+
     typeOfList = input(
-        "Date Type of list: F float or any key for Integer: ").strip() or 'I'
+        "Date Type of list: F for float or any key for Integer: ").strip() or 'I'
     manualOrRandom = input(
-        "Generate List Data: any key for Random or M for manual: ").strip() or 'R'
+        "Generate List Data: M for manual or any key for Random: ").strip() or 'R'
 
     if manualOrRandom == 'R':
 
@@ -22,12 +29,16 @@ while continueProgram != "N":
                 "Range of the list (minimum, maximum): ").strip().split(",")[0:2]]
 
             if minimum <= 0 or maximum <= 0:
-                minimum, maximum = 1, 100000
-            elif minimum >= maximum:
+                minimum, maximum = 1, 9999998
+            if minimum >= 9999999:
+                minimum = 1
+            if maximum >= 9999999:
+                maximum = 9999998
+            if minimum >= maximum:
                 minimum, maximum = maximum, minimum
 
         except:
-            minimum, maximum = 1, 100000
+            minimum, maximum = 1, 9999998
 
     print("Array Size: {}".format(maxListSize))
     print("Array Data Type: {}".format(
@@ -38,7 +49,7 @@ while continueProgram != "N":
         print("Random Minimum: {}, Random Maximum: {}".format(minimum, maximum))
 
     continueProgram = input(
-        "Any key to continue or N(o) to terminate... ").strip().upper()
+        "N(o) to terminate or Any key to continue... ").strip().upper()
     clear_screen()
 
 print("End of Program.")

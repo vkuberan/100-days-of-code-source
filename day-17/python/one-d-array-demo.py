@@ -7,7 +7,14 @@ continueProgram = "Y"
 
 while continueProgram != "N":
 
-    maxListSize = int(input("Maximum List Size: ").strip() or "25")
+    maxListSize = int(
+        input("Maximum List Size (Min: 25, Max: 9999999): ").strip() or "25")
+
+    if maxListSize <= 25:
+        maxListSize = 25
+    elif maxListSize >= 9999999:
+        maxListSize = 9999999
+
     typeOfList = input(
         "Date Type of list: F float or any key for Integer: ").strip() or 'I'
     manualOrRandom = input(
@@ -22,8 +29,11 @@ while continueProgram != "N":
                 "Range of the list (minimum, maximum): ").strip().split(",")[0:2]]
 
             if minimum <= 0 or maximum <= 0:
-                minimum, maximum = 1, 100000
-            elif minimum >= maximum:
+                minimum, maximum = 1, 9999998
+            elif minimum >= 9999999 or maximum >= 9999999:
+                minimum, maximum = 1, 9999998
+
+            if minimum >= maximum:
                 minimum, maximum = maximum, minimum
 
         except:
