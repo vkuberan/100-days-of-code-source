@@ -72,31 +72,26 @@ while continueProgram != "X":
             clear_screen()
             print("Displaying all Informations related to Array.")
             dummy = input("Press any key to continue...")
-            clear_screen()
 
         elif interOption == "A":
             clear_screen()
             print("Adding List to Itself")
             dummy = input("Press any key to continue...")
-            clear_screen()
 
         elif interOption == "S":
             clear_screen()
             print("Subtracting List to Itself")
             dummy = input("Press any key to continue...")
-            clear_screen()
 
         elif interOption == "M":
             clear_screen()
             print("Multiplying List to Itself")
             dummy = input("Press any key to continue...")
-            clear_screen()
 
         elif interOption == "D":
             clear_screen()
             print("Dividing List to Itself")
             dummy = input("Press any key to continue...")
-            clear_screen()
 
         elif interOption == "X":
             performOpOnData = 'N'
