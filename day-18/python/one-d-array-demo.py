@@ -5,7 +5,7 @@ print("Welcome to NumPy 'Single Dimentional Array' Demo")
 
 continueProgram = "Y"
 
-while continueProgram != "N":
+while continueProgram != "X":
 
     maxListSize = int(
         input("Maximum List Size (Min: 25, Max: 1000000): ").strip() or "25")
@@ -57,43 +57,50 @@ while continueProgram != "N":
 
     while performOpOnData == 'Y':
 
+        clear_screen()
         options = "Press\n"
-        options += "(D) to Display All Informations.\n"
+        options += "(V) View All Informations related to this Array.\n"
         options += "(A) Add list with itself.\n"
         options += "(S) Subtract list with itself.\n"
         options += "(M) Multiply list with itself.\n"
         options += "(D) Divide list with itself.\n"
         options += "(X) to Quit to Main Menu.\n"
 
-        interOption = (input(options).strip().upper() or 'D')[0]
+        interOption = (input(options).strip().upper() or 'V')[0]
 
-        if interOption == "D":
-            print("Display all Informations related to Array.")
+        if interOption == "V":
+            clear_screen()
+            print("Displaying all Informations related to Array.")
             dummy = input("Press any key to continue...")
             clear_screen()
 
         elif interOption == "A":
+            clear_screen()
             print("Adding List to Itself")
             dummy = input("Press any key to continue...")
             clear_screen()
 
         elif interOption == "S":
+            clear_screen()
             print("Subtracting List to Itself")
             dummy = input("Press any key to continue...")
             clear_screen()
 
         elif interOption == "M":
+            clear_screen()
             print("Multiplying List to Itself")
             dummy = input("Press any key to continue...")
             clear_screen()
 
         elif interOption == "D":
+            clear_screen()
             print("Dividing List to Itself")
             dummy = input("Press any key to continue...")
             clear_screen()
 
         elif interOption == "X":
             performOpOnData = 'N'
+            clear_screen()
 
         # 1-d NumPy Array
 
@@ -106,8 +113,8 @@ while continueProgram != "N":
     # if sequentialOrRandom == 'R':
     #     print("Random Minimum: {}, Random Maximum: {}".format(minimum, maximum))
 
-    continueProgram = input(
-        "N(o) to terminate or Any key to continue... ").strip().upper()
+    continueProgram = (input(
+        "Do you want to play with NumPy another time? Press any key to continue or (X) to terminate... ").strip().upper() or 'Y')[0]
     clear_screen()
 
 # Program End
