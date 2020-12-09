@@ -17,10 +17,10 @@ while continueProgram != "N":
 
     typeOfList = input(
         "Date Type of list: F for float or any key for Integer: ").strip().upper() or 'I'
-    manualOrRandom = input(
-        "Generate List Data: M for manual or any key for Random: ").strip().upper() or 'R'
+    sequentialOrRandom = input(
+        "Generate List Data: S for sequential or any key for Random: ").strip().upper() or 'R'
 
-    if manualOrRandom == 'R':
+    if sequentialOrRandom == 'R':
 
         try:
             # minimum, maximum = map(int, input(
@@ -42,7 +42,9 @@ while continueProgram != "N":
 
     # 1-d Python List
     oneDimPythonList = []
-    if typeOfList == 'F':
+    if typeOfList == 'F' and sequentialOrRandom == 'S':
+        oneDimPythonList = [float(i) for i in range(1, maxListSize)]
+    elif typeOfList == 'F' and sequentialOrRandom != 'S':
         oneDimPythonList = [float(i) for i in range(1, maxListSize)]
     else:
         oneDimPythonList = [i for i in range(1, maxListSize)]
