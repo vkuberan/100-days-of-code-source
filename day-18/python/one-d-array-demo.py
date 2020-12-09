@@ -45,20 +45,66 @@ while continueProgram != "N":
     if typeOfList == 'F' and sequentialOrRandom == 'S':
         oneDimPythonList = [float(i) for i in range(1, maxListSize)]
     elif typeOfList == 'F' and sequentialOrRandom != 'S':
-        oneDimPythonList = [float(i) for i in range(1, maxListSize)]
-    else:
+        oneDimPythonList = [np.random.uniform(
+            minimum, maximum) for i in range(1, maxListSize)]
+    elif sequentialOrRandom == 'S':
         oneDimPythonList = [i for i in range(1, maxListSize)]
+    else:
+        oneDimPythonList = [int(np.random.uniform(
+            minimum, maximum)) for i in range(1, maxListSize)]
 
-    # 1-d NumPy Array
+    performOpOnData = 'Y'
 
-    print("Array Size: {}".format(maxListSize))
-    print("Array Value: {}".format(oneDimPythonList))
-    print("Array Data Type: {}".format(
-        "Float" if typeOfList == 'F' else "Integer"))
-    print("Manual or Random: {}".format(
-        "Random" if manualOrRandom == 'R' else "Manual"))
-    if manualOrRandom == 'R':
-        print("Random Minimum: {}, Random Maximum: {}".format(minimum, maximum))
+    while performOpOnData == 'Y':
+
+        options = "Press\n"
+        options += "(D) to Display All Informations.\n"
+        options += "(A) Add list with itself.\n"
+        options += "(S) Subtract list with itself.\n"
+        options += "(M) Multiply list with itself.\n"
+        options += "(D) Divide list with itself.\n"
+        options += "(X) to Quit to Main Menu.\n"
+
+        interOption = (input(options).strip().upper() or 'D')[0]
+
+        if interOption == "D":
+            print("Display all Informations related to Array.")
+            dummy = input("Press any key to continue...")
+            clear_screen()
+
+        elif interOption == "A":
+            print("Adding List to Itself")
+            dummy = input("Press any key to continue...")
+            clear_screen()
+
+        elif interOption == "S":
+            print("Subtracting List to Itself")
+            dummy = input("Press any key to continue...")
+            clear_screen()
+
+        elif interOption == "M":
+            print("Multiplying List to Itself")
+            dummy = input("Press any key to continue...")
+            clear_screen()
+
+        elif interOption == "D":
+            print("Dividing List to Itself")
+            dummy = input("Press any key to continue...")
+            clear_screen()
+
+        elif interOption == "X":
+            performOpOnData = 'N'
+
+        # 1-d NumPy Array
+
+    # print("Array Size: {}".format(maxListSize))
+    # print("Array Value: {}".format(oneDimPythonList))
+    # print("Array Data Type: {}".format(
+    #     "Float" if typeOfList == 'F' else "Integer"))
+    # print("Manual or Random: {}".format(
+    #     "Random" if sequentialOrRandom == 'R' else "Manual"))
+    # if sequentialOrRandom == 'R':
+    #     print("Random Minimum: {}, Random Maximum: {}".format(minimum, maximum))
 
     continueProgram = input(
         "N(o) to terminate or Any key to continue... ").strip().upper()
