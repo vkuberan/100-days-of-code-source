@@ -8,17 +8,17 @@ continueProgram = "Y"
 while continueProgram != "N":
 
     maxListSize = int(
-        input("Maximum List Size (Min: 25, Max: 9999999): ").strip() or "25")
+        input("Maximum List Size (Min: 25, Max: 1000000): ").strip() or "25")
 
     if maxListSize <= 25:
         maxListSize = 25
-    elif maxListSize >= 9999999:
-        maxListSize = 9999999
+    elif maxListSize >= 1000000:
+        maxListSize = 1000000
 
     typeOfList = input(
-        "Date Type of list: F for float or any key for Integer: ").strip() or 'I'
+        "Date Type of list: F for float or any key for Integer: ").strip().upper() or 'I'
     manualOrRandom = input(
-        "Generate List Data: M for manual or any key for Random: ").strip() or 'R'
+        "Generate List Data: M for manual or any key for Random: ").strip().upper() or 'R'
 
     if manualOrRandom == 'R':
 
@@ -40,7 +40,17 @@ while continueProgram != "N":
         except:
             minimum, maximum = 1, 9999998
 
+    # 1-d Python List
+    oneDimPythonList = []
+    if typeOfList == 'F':
+        oneDimPythonList = [float(i) for i in range(1, maxListSize)]
+    else:
+        oneDimPythonList = [i for i in range(1, maxListSize)]
+
+    # 1-d NumPy Array
+
     print("Array Size: {}".format(maxListSize))
+    print("Array Value: {}".format(oneDimPythonList))
     print("Array Data Type: {}".format(
         "Float" if typeOfList == 'F' else "Integer"))
     print("Manual or Random: {}".format(
@@ -52,4 +62,4 @@ while continueProgram != "N":
         "N(o) to terminate or Any key to continue... ").strip().upper()
     clear_screen()
 
-print("End of Program.")
+# Program End
