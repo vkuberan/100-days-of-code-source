@@ -31,6 +31,7 @@ def view_1d_array(oneDimList):
     print(oneDimList)
 
 
+# Add Operations
 def perform_add_operation(info):
     msg = "Add Lists and then with NumPy Array separately and then Compare their Performance. \n"
     print(msg)
@@ -56,6 +57,7 @@ def perform_add_operation(info):
         timeTakenForExecution))
 
 
+# Subtraction Operations
 def perform_sub_operation(info):
     msg = "Subtract Lists and then with NumPy Array sepatetely and then Compare their Performance."
     print(msg)
@@ -80,7 +82,7 @@ def perform_sub_operation(info):
         timeTakenForExecution))
 
 
-def perform_mul_operation(info):
+def perform_mul_operation(info):  # Multiplication Operations
     msg = "Multiply Lists and then with NumPy Array sepatetely and then Compare their Performance."
     print(msg)
     print("*" * len(msg))
@@ -104,6 +106,7 @@ def perform_mul_operation(info):
         timeTakenForExecution))
 
 
+# Division Operations
 def perform_divide_operation(info):
     msg = "Divide Lists and then with NumPy Array sepatetely and then Compare their Performance."
     print(msg)
