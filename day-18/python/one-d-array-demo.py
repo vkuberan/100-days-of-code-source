@@ -20,6 +20,8 @@ while continueProgram != "X":
     sequentialOrRandom = input(
         "Generate List Data: S for sequential or any key for Random: ").strip().upper() or 'R'
 
+    minimum, maximum = 1, 9999998
+
     if sequentialOrRandom == 'R':
 
         try:
@@ -68,9 +70,17 @@ while continueProgram != "X":
 
         interOption = (input(options).strip().upper() or 'V')[0]
 
+        info = {
+            'listSize': maxListSize,
+            'listType': typeOfList,
+            'seqOrRandom': sequentialOrRandom,
+            'ifRandom': (minimum, maximum),
+            'listData': oneDimPythonList
+        }
+
         if interOption == "V":
             clear_screen()
-            print("Displaying all Informations related to Array.")
+            view_1d_info(info)
             dummy = input("Press any key to continue...")
 
         elif interOption == "A":
@@ -96,17 +106,6 @@ while continueProgram != "X":
         elif interOption == "X":
             performOpOnData = 'N'
             clear_screen()
-
-        # 1-d NumPy Array
-
-    # print("Array Size: {}".format(maxListSize))
-    # print("Array Value: {}".format(oneDimPythonList))
-    # print("Array Data Type: {}".format(
-    #     "Float" if typeOfList == 'F' else "Integer"))
-    # print("Manual or Random: {}".format(
-    #     "Random" if sequentialOrRandom == 'R' else "Manual"))
-    # if sequentialOrRandom == 'R':
-    #     print("Random Minimum: {}, Random Maximum: {}".format(minimum, maximum))
 
     continueProgram = (input(
         "Do you want to play with NumPy another time? Press any key to continue or (X) to terminate... ").strip().upper() or 'Y')[0]
