@@ -62,6 +62,7 @@ while continueProgram != "X":
         clear_screen()
         options = "Press\n"
         options += "(V) View All Informations related to this Array.\n"
+        options += "(L) View Array Data.\n"
         options += "(A) Add list with itself.\n"
         options += "(S) Subtract list with itself.\n"
         options += "(M) Multiply list with itself.\n"
@@ -81,6 +82,11 @@ while continueProgram != "X":
         if interOption == "V":
             clear_screen()
             view_1d_info(info)
+            dummy = input("Press any key to continue...")
+
+        elif interOption == "L":
+            clear_screen()
+            view_1d_array(oneDimPythonList)
             dummy = input("Press any key to continue...")
 
         elif interOption == "A":
