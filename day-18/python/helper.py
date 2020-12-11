@@ -29,3 +29,27 @@ def view_1d_array(oneDimList):
     print(msg)
     print("*" * len(msg))
     print(oneDimList)
+
+
+def perform_add_operation(info):
+    msg = "Add Lists and then with NumPy Array separately and then Compare their Performance."
+    print(msg)
+    print("*" * len(msg))
+
+
+def perform_sub_operation(info):
+    msg = "Subtract Lists and then with NumPy Array sepatetely and then Compare their Performance."
+    print(msg)
+    print("*" * len(msg))
+
+
+def perform_mul_operation(info):
+    msg = "Multiply Lists and then with NumPy Array sepatetely and then Compare their Performance."
+    print(msg)
+    print("*" * len(msg))
+
+
+def perform_divide_operation(info):
+    msg = "Divide Lists and then with NumPy Array sepatetely and then Compare their Performance."
+    print(msg)
+    print("*" * len(msg))

@@ -91,22 +91,22 @@ while continueProgram != "X":
 
         elif interOption == "A":
             clear_screen()
-            print("Adding List to Itself")
+            perform_add_operation(info)
             dummy = input("Press any key to continue...")
 
         elif interOption == "S":
             clear_screen()
-            print("Subtracting List to Itself")
+            perform_sub_operation(info)
             dummy = input("Press any key to continue...")
 
         elif interOption == "M":
             clear_screen()
-            print("Multiplying List to Itself")
+            perform_mul_operation(info)
             dummy = input("Press any key to continue...")
 
         elif interOption == "D":
             clear_screen()
-            print("Dividing List to Itself")
+            perform_divide_operation(info)
             dummy = input("Press any key to continue...")
 
         elif interOption == "X":
