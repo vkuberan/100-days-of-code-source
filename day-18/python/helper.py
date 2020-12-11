@@ -32,24 +32,97 @@ def view_1d_array(oneDimList):
 
 
 def perform_add_operation(info):
-    msg = "Add Lists and then with NumPy Array separately and then Compare their Performance."
+    msg = "Add Lists and then with NumPy Array separately and then Compare their Performance. \n"
     print(msg)
     print("*" * len(msg))
+
+    print("Standard Python: ")
+    startExecution = time.time()
+    perform_Ops = list(map(lambda x: (x + x), info['listData']))
+    endExecution = time.time()
+    timeTakenForExecution = (endExecution - startExecution)
+    print("Total time taken for Standard List Addition: {}".format(
+        timeTakenForExecution))
+
+    print("\nNumPy: ")
+
+    startExecution = time.time()
+    list1 = np.array(info['listData'])
+    perform_Ops = list1 + list1
+    endExecution = time.time()
+    timeTakenForExecution = (endExecution - startExecution)
+
+    print("Total time taken for NumPy Addition: {}".format(
+        timeTakenForExecution))
 
 
 def perform_sub_operation(info):
     msg = "Subtract Lists and then with NumPy Array sepatetely and then Compare their Performance."
     print(msg)
     print("*" * len(msg))
+    print("Standard Python: ")
+    startExecution = time.time()
+    perform_Ops = list(map(lambda x: (x + x), info['listData']))
+    endExecution = time.time()
+    timeTakenForExecution = (endExecution - startExecution)
+    print("Total time taken for Standard List Addition: {}".format(
+        timeTakenForExecution))
+
+    print("\nNumPy: ")
+
+    startExecution = time.time()
+    list1 = np.array(info['listData'])
+    perform_Ops = list1 + list1
+    endExecution = time.time()
+    timeTakenForExecution = (endExecution - startExecution)
+
+    print("Total time taken for NumPy Addition: {}".format(
+        timeTakenForExecution))
 
 
 def perform_mul_operation(info):
     msg = "Multiply Lists and then with NumPy Array sepatetely and then Compare their Performance."
     print(msg)
     print("*" * len(msg))
+    print("Standard Python: ")
+    startExecution = time.time()
+    perform_Ops = list(map(lambda x: (x + x), info['listData']))
+    endExecution = time.time()
+    timeTakenForExecution = (endExecution - startExecution)
+    print("Total time taken for Standard List Addition: {}".format(
+        timeTakenForExecution))
+
+    print("\nNumPy: ")
+
+    startExecution = time.time()
+    list1 = np.array(info['listData'])
+    perform_Ops = list1 + list1
+    endExecution = time.time()
+    timeTakenForExecution = (endExecution - startExecution)
+
+    print("Total time taken for NumPy Addition: {}".format(
+        timeTakenForExecution))
 
 
 def perform_divide_operation(info):
     msg = "Divide Lists and then with NumPy Array sepatetely and then Compare their Performance."
     print(msg)
     print("*" * len(msg))
+    print("Standard Python: ")
+    startExecution = time.time()
+    perform_Ops = list(map(lambda x: (x + x), info['listData']))
+    endExecution = time.time()
+    timeTakenForExecution = (endExecution - startExecution)
+    print("Total time taken for Standard List Addition: {}".format(
+        timeTakenForExecution))
+
+    print("\nNumPy: ")
+
+    startExecution = time.time()
+    list1 = np.array(info['listData'])
+    perform_Ops = list1 + list1
+    endExecution = time.time()
+    timeTakenForExecution = (endExecution - startExecution)
+
+    print("Total time taken for NumPy Addition: {}".format(
+        timeTakenForExecution))
