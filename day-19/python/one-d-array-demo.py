@@ -99,22 +99,22 @@ while continueProgram != "X":
 
         elif interOption == "A":
             clear_screen()
-            perform_add_operation(info)
+            perform_operations(info, 'add')
             dummy = input("Press any key to continue...")
 
         elif interOption == "S":
             clear_screen()
-            perform_sub_operation(info)
+            perform_operations(info, 'sub')
             dummy = input("Press any key to continue...")
 
         elif interOption == "M":
             clear_screen()
-            perform_mul_operation(info)
+            perform_operations(info, 'mul')
             dummy = input("Press any key to continue...")
 
         elif interOption == "D":
             clear_screen()
-            perform_divide_operation(info)
+            perform_operations(info, 'div')
             dummy = input("Press any key to continue...")
 
         elif interOption == "X":
