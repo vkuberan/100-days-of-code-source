@@ -53,15 +53,17 @@ while continueProgram != "X":
         oneDimPythonList = [np.random.uniform(
             minimum, maximum) for i in range(1, maxListSize)]
         oneDimPythonList2 = [np.random.uniform(
-            minimum, maximum) for i in range(1, maxListSize)]
+            minimum, maximum) for i in range(maxListSize, 1, -1)]
     elif sequentialOrRandom == 'S':
+        print("Inside Sequential")
         oneDimPythonList = [i for i in range(1, maxListSize)]
         oneDimPythonList2 = [i for i in range(maxListSize, 1, -1)]
+        input("Press any key to continue....")
     else:
         oneDimPythonList = [int(np.random.uniform(
             minimum, maximum)) for i in range(1, maxListSize)]
-        oneDimPythonList1 = [int(np.random.uniform(
-            minimum, maximum)) for i in range(1, maxListSize)]
+        oneDimPythonList2 = [int(np.random.uniform(
+            minimum, maximum)) for i in range(maxListSize, 1, -1)]
 
     performOpOnData = 'Y'
 
@@ -84,7 +86,7 @@ while continueProgram != "X":
             'listType': typeOfList,
             'seqOrRandom': sequentialOrRandom,
             'ifRandom': (minimum, maximum),
-            'listData': (oneDimPythonList, oneDimPythonList1)
+            'listData': (oneDimPythonList, oneDimPythonList2)
         }
 
         if interOption == "V":
