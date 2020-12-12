@@ -31,7 +31,7 @@ def view_1d_array(oneDimList):
     print(oneDimList)
 
 
-# Add Operations
+# Going to refactor these 4 functions in 1.
 def perform_add_operation(info):
     msg = "Add Lists and then with NumPy Array separately and then Compare their Performance. \n"
     print(msg)
