@@ -48,22 +48,22 @@ while continueProgram != "X":
     oneDimPythonList2 = []
     if typeOfList == 'F' and sequentialOrRandom == 'S':
         oneDimPythonList = [float(i) for i in range(1, maxListSize)]
-        oneDimPythonList2 = [float(i) for i in range(maxListSize, 1, -1)]
+        oneDimPythonList2 = [float(i) for i in range(maxListSize - 1, 0, -1)]
     elif typeOfList == 'F' and sequentialOrRandom != 'S':
         oneDimPythonList = [np.random.uniform(
             minimum, maximum) for i in range(1, maxListSize)]
         oneDimPythonList2 = [np.random.uniform(
-            minimum, maximum) for i in range(maxListSize, 1, -1)]
+            minimum, maximum) for i in range(maxListSize - 1, 0, -1)]
     elif sequentialOrRandom == 'S':
         print("Inside Sequential")
         oneDimPythonList = [i for i in range(1, maxListSize)]
-        oneDimPythonList2 = [i for i in range(maxListSize, 1, -1)]
+        oneDimPythonList2 = [i for i in range(maxListSize - 1, 0, -1)]
         input("Press any key to continue....")
     else:
         oneDimPythonList = [int(np.random.uniform(
             minimum, maximum)) for i in range(1, maxListSize)]
         oneDimPythonList2 = [int(np.random.uniform(
-            minimum, maximum)) for i in range(maxListSize, 1, -1)]
+            minimum, maximum)) for i in range(maxListSize - 1, 0, -1)]
 
     performOpOnData = 'Y'
 
