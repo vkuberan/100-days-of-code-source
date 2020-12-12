@@ -55,10 +55,8 @@ while continueProgram != "X":
         oneDimPythonList2 = [np.random.uniform(
             minimum, maximum) for i in range(maxListSize - 1, 0, -1)]
     elif sequentialOrRandom == 'S':
-        print("Inside Sequential")
         oneDimPythonList = [i for i in range(1, maxListSize)]
         oneDimPythonList2 = [i for i in range(maxListSize - 1, 0, -1)]
-        input("Press any key to continue....")
     else:
         oneDimPythonList = [int(np.random.uniform(
             minimum, maximum)) for i in range(1, maxListSize)]

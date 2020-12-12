@@ -34,6 +34,8 @@ def view_1d_array(info):
     strList += "Second List: [{}, . . . , {}]".format(', '.join(map(
         str, info['listData'][1][0:5])), ', '.join(map(str, info['listData'][1][-5:])))
 
+    print(strList)
+
 # Going to refactor these 4 functions in 1.
 
 
