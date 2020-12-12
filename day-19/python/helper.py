@@ -54,7 +54,7 @@ def perform_operations(info, action='add'):
         generalMsg = perform_mul_operation(info)
     elif action == 'div':
         op = "Division"
-        generalMsg = perform_div_operation(info)
+        generalMsg = perform_divide_operation(info)
 
     msg = "Perform '{}' on Python Lists and on NumPy Arrays separately and then Compare their Performance".format(
         op)
