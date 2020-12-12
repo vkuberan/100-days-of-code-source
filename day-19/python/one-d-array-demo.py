@@ -8,12 +8,12 @@ continueProgram = "Y"
 while continueProgram != "X":
 
     maxListSize = int(
-        input("Maximum List Size (Min: 25, Max: 1000000): ").strip() or "25")
+        input("Maximum List Size (Min: 25, Max: 10000000): ").strip() or "2500")
 
     if maxListSize <= 25:
         maxListSize = 25
-    elif maxListSize >= 1000000:
-        maxListSize = 1000000
+    elif maxListSize >= 10000000:
+        maxListSize = 10000000
 
     typeOfList = input(
         "Date Type of list: F for float or any key for Integer: ").strip().upper() or 'I'
