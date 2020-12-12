@@ -43,16 +43,24 @@ while continueProgram != "X":
             minimum, maximum = 1, 9999998
 
     # 1-d Python List
+    print("Creating Lists in Python, Pleae wait for a while....")
     oneDimPythonList = []
+    oneDimPythonList2 = []
     if typeOfList == 'F' and sequentialOrRandom == 'S':
         oneDimPythonList = [float(i) for i in range(1, maxListSize)]
+        oneDimPythonList2 = [float(i) for i in range(maxListSize, 1, -1)]
     elif typeOfList == 'F' and sequentialOrRandom != 'S':
         oneDimPythonList = [np.random.uniform(
             minimum, maximum) for i in range(1, maxListSize)]
+        oneDimPythonList2 = [np.random.uniform(
+            minimum, maximum) for i in range(1, maxListSize)]
     elif sequentialOrRandom == 'S':
         oneDimPythonList = [i for i in range(1, maxListSize)]
+        oneDimPythonList2 = [i for i in range(maxListSize, 1, -1)]
     else:
         oneDimPythonList = [int(np.random.uniform(
+            minimum, maximum)) for i in range(1, maxListSize)]
+        oneDimPythonList1 = [int(np.random.uniform(
             minimum, maximum)) for i in range(1, maxListSize)]
 
     performOpOnData = 'Y'
@@ -76,7 +84,7 @@ while continueProgram != "X":
             'listType': typeOfList,
             'seqOrRandom': sequentialOrRandom,
             'ifRandom': (minimum, maximum),
-            'listData': oneDimPythonList
+            'listData': (oneDimPythonList, oneDimPythonList1)
         }
 
         if interOption == "V":
@@ -86,7 +94,7 @@ while continueProgram != "X":
 
         elif interOption == "L":
             clear_screen()
-            view_1d_array(oneDimPythonList)
+            view_1d_array(info)
             dummy = input("Press any key to continue...")
 
         elif interOption == "A":

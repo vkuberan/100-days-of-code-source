@@ -24,11 +24,16 @@ def view_1d_info(arrayProperties):
             arrayProperties['ifRandom'][0], arrayProperties['ifRandom'][1]))
 
 
-def view_1d_array(oneDimList):
+def view_1d_array(info):
     msg = "View Array Values."
     print(msg)
     print("*" * len(msg))
-    print(oneDimList)
+    firstList = "First List: {}".format(
+        info['listData'][0][0:5], info['listData'][0][-5:])
+    print(firstList)
+    secondList = "Second List: {}...{}".format(
+        info['listData'][1][0:5], info['listData'][1][-5:])
+    print(secondList)
 
 
 # Going to refactor these 4 functions in 1.
