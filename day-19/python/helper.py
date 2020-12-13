@@ -169,6 +169,9 @@ def perform_divide_operation(info):
 
 
 def print_data(op, data, returndata):
+    clear_screen()
+    tmp = op + " Results (500 rows per page)\n"
+    op = tmp + "*" * len(tmp)
     print(op)
-    print(data)
-    print(returndata)
+    # print(data)
+    # print(returndata)
