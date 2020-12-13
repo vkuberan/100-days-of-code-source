@@ -41,26 +41,26 @@ def view_1d_array(info):
 def perform_operations(info, action='add'):
 
     op = ''
-    generalMsg = ''
+    retValue = ''
 
     if action == 'add':
         op = "Addition"
-        generalMsg = perform_add_operation(info)
+        retValue = perform_add_operation(info)
     elif action == 'sub':
         op = "Subtraction"
-        generalMsg = perform_sub_operation(info)
+        retValue = perform_sub_operation(info)
     elif action == 'mul':
         op = "Multiplication"
-        generalMsg = perform_mul_operation(info)
+        retValue = perform_mul_operation(info)
     elif action == 'div':
         op = "Division"
-        generalMsg = perform_divide_operation(info)
+        retValue = perform_divide_operation(info)
 
     msg = "Perform '{}' on Python Lists and on NumPy Arrays separately and then Compare their Performance".format(
         op)
     print(msg)
     print("*" * len(msg))
-    print(generalMsg)
+    print(retValue[0])
 
 
 def perform_add_operation(info):
@@ -76,14 +76,15 @@ def perform_add_operation(info):
     msg += "\nNumPy: \n"
 
     startExecution = time.time()
-    perform_Ops = np.array(info['listData'][0]) + np.array(info['listData'][1])
+    perform_Ops_NumPy = np.array(
+        info['listData'][0]) + np.array(info['listData'][1])
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
 
     msg += "Total time taken for NumPy Addition: {}\n".format(
         timeTakenForExecution)
 
-    return msg
+    return [msg, perform_Ops, perform_Ops_NumPy]
 
 
 # Subtraction Operations
@@ -100,14 +101,15 @@ def perform_sub_operation(info):
     msg += "\nNumPy: \n"
 
     startExecution = time.time()
-    perform_Ops = np.array(info['listData'][1]) - np.array(info['listData'][0])
+    perform_Ops_NumPy = np.array(
+        info['listData'][1]) - np.array(info['listData'][0])
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
 
     msg += "Total time taken for NumPy Subtraction: {}\n".format(
         timeTakenForExecution)
 
-    return msg
+    return [msg, perform_Ops, perform_Ops_NumPy]
 
 
 def perform_mul_operation(info):  # Multiplication Operations
@@ -123,14 +125,15 @@ def perform_mul_operation(info):  # Multiplication Operations
     msg += "\nNumPy: \n"
 
     startExecution = time.time()
-    perform_Ops = np.array(info['listData'][0]) * np.array(info['listData'][1])
+    perform_Ops_NumPy = np.array(
+        info['listData'][0]) * np.array(info['listData'][1])
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
 
     msg += "Total time taken for NumPy Multiplication: {}\n".format(
         timeTakenForExecution)
 
-    return msg
+    return [msg, perform_Ops, perform_Ops_NumPy]
 
 # Division Operations
 
@@ -148,11 +151,12 @@ def perform_divide_operation(info):
     msg += "\nNumPy: \n"
 
     startExecution = time.time()
-    perform_Ops = np.array(info['listData'][1]) / np.array(info['listData'][0])
+    perform_Ops_NumPy = np.array(
+        info['listData'][1]) / np.array(info['listData'][0])
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
 
     msg += "Total time taken for NumPy Division: {}\n".format(
         timeTakenForExecution)
 
-    return msg
+    return [msg, perform_Ops, perform_Ops_NumPy]
