@@ -62,11 +62,17 @@ def perform_operations(info, action='add'):
     print("*" * len(msg))
     print(retValue[0])
 
+    doYouWantToContinue = input(
+        "Do you want to display values of the Performed Action? Y(es) to display or any key to quit...").strip().upper() or 'Q')[0]
+
+    if doYouWantToContinue == 'Y':
+        print("Displaying the Data: ")
+
 
 def perform_add_operation(info):
-    msg = "Standard Python: \n"
-    startExecution = time.time()
-    perform_Ops = list(
+    msg="Standard Python: \n"
+    startExecution=time.time()
+    perform_Ops=list(
         map(lambda x, y: (x + y), info['listData'][0], info['listData'][1]))
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
@@ -75,11 +81,11 @@ def perform_add_operation(info):
 
     msg += "\nNumPy: \n"
 
-    startExecution = time.time()
-    perform_Ops_NumPy = np.array(
+    startExecution=time.time()
+    perform_Ops_NumPy=np.array(
         info['listData'][0]) + np.array(info['listData'][1])
-    endExecution = time.time()
-    timeTakenForExecution = (endExecution - startExecution)
+    endExecution=time.time()
+    timeTakenForExecution=(endExecution - startExecution)
 
     msg += "Total time taken for NumPy Addition: {}\n".format(
         timeTakenForExecution)
@@ -89,9 +95,9 @@ def perform_add_operation(info):
 
 # Subtraction Operations
 def perform_sub_operation(info):
-    msg = "Standard Python: \n"
-    startExecution = time.time()
-    perform_Ops = list(
+    msg="Standard Python: \n"
+    startExecution=time.time()
+    perform_Ops=list(
         map(lambda x, y: (y - x), info['listData'][0], info['listData'][1]))
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
@@ -100,11 +106,11 @@ def perform_sub_operation(info):
 
     msg += "\nNumPy: \n"
 
-    startExecution = time.time()
-    perform_Ops_NumPy = np.array(
+    startExecution=time.time()
+    perform_Ops_NumPy=np.array(
         info['listData'][1]) - np.array(info['listData'][0])
-    endExecution = time.time()
-    timeTakenForExecution = (endExecution - startExecution)
+    endExecution=time.time()
+    timeTakenForExecution=(endExecution - startExecution)
 
     msg += "Total time taken for NumPy Subtraction: {}\n".format(
         timeTakenForExecution)
@@ -113,9 +119,9 @@ def perform_sub_operation(info):
 
 
 def perform_mul_operation(info):  # Multiplication Operations
-    msg = "Standard Python: \n"
-    startExecution = time.time()
-    perform_Ops = list(
+    msg="Standard Python: \n"
+    startExecution=time.time()
+    perform_Ops=list(
         map(lambda x, y: (x * y), info['listData'][0], info['listData'][1]))
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
@@ -124,11 +130,11 @@ def perform_mul_operation(info):  # Multiplication Operations
 
     msg += "\nNumPy: \n"
 
-    startExecution = time.time()
-    perform_Ops_NumPy = np.array(
+    startExecution=time.time()
+    perform_Ops_NumPy=np.array(
         info['listData'][0]) * np.array(info['listData'][1])
-    endExecution = time.time()
-    timeTakenForExecution = (endExecution - startExecution)
+    endExecution=time.time()
+    timeTakenForExecution=(endExecution - startExecution)
 
     msg += "Total time taken for NumPy Multiplication: {}\n".format(
         timeTakenForExecution)
@@ -139,9 +145,9 @@ def perform_mul_operation(info):  # Multiplication Operations
 
 
 def perform_divide_operation(info):
-    msg = "Standard Python: \n"
-    startExecution = time.time()
-    perform_Ops = list(
+    msg="Standard Python: \n"
+    startExecution=time.time()
+    perform_Ops=list(
         map(lambda x, y: (y / x), info['listData'][0], info['listData'][1]))
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
@@ -150,11 +156,11 @@ def perform_divide_operation(info):
 
     msg += "\nNumPy: \n"
 
-    startExecution = time.time()
-    perform_Ops_NumPy = np.array(
+    startExecution=time.time()
+    perform_Ops_NumPy=np.array(
         info['listData'][1]) / np.array(info['listData'][0])
-    endExecution = time.time()
-    timeTakenForExecution = (endExecution - startExecution)
+    endExecution=time.time()
+    timeTakenForExecution=(endExecution - startExecution)
 
     msg += "Total time taken for NumPy Division: {}\n".format(
         timeTakenForExecution)
