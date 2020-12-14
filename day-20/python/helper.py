@@ -176,7 +176,7 @@ def print_data(op, data, returndata):
     pageLen = 500
     totalPages = round(len(data['listData'][0]) / pageLen)
 
-    header = "{:61s} {:10s} {:<51s}".format(
+    header = "{:61s} {:16s} {:<51s}".format(
         'Python List', ' ', 'NumPy Array')
     astrickStr = '*' * len(header)
 
@@ -201,12 +201,12 @@ def print_data(op, data, returndata):
         print(astrickStr)
         for iCnt in range(start, end):
             counterString = str(iCnt + 1) + ")"
-            fmtStr1 = "{:<10s} {:<12d} {:<3s} {:<12d} {:<5s} {:<15d}".format(counterString,
+            fmtStr1 = "{:<10s} {:<12d} {:<8s} {:<12d} {:<5s} {:<15d}".format(counterString,
                                                                              data['listData'][0][iCnt], 'x',
                                                                              data['listData'][1][iCnt], '=',
                                                                              (data['listData'][0][iCnt] * data['listData'][1][iCnt]))
 
-            fmtStr2 = "{:<12d} {:<3s} {:<12d} {:<5s} {:<15d}".format(
+            fmtStr2 = "{:<12d} {:<8s} {:<12d} {:<5s} {:<15d}".format(
                 data['listData'][0][iCnt], 'x', data['listData'][1][iCnt], '=', (data['listData'][0][iCnt] * data['listData'][1][iCnt]))
 
             print("{} {:>5s}{:<5s} {}".format(fmtStr1, ' ', '|', fmtStr2))
