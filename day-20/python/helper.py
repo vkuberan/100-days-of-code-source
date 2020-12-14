@@ -172,6 +172,52 @@ def print_data(op, data, returndata):
     clear_screen()
     tmp = op + " Results (500 rows per page)\n"
     op = tmp + "*" * len(tmp)
-    print(op)
-    # print(data)
-    # print(returndata)
+
+    pageLen = 500
+    totalPages = round(len(data['listData'][0]) / pageLen)
+
+    header = "{:61s} {:10s} {:<51s}".format(
+        'Python List', ' ', 'NumPy Array')
+    astrickStr = '*' * len(header)
+
+    for i in range(1, (totalPages + 1), 1):
+        start, end = 1, pageLen
+        if i == 1:
+            start = 1
+            end = pageLen
+            if end >= len(data['listData'][0]):
+                end = len(data['listData'][0])
+        else:
+            start = ((i - 1) * pageLen) + 1
+            end = i * pageLen
+            if end >= len(data['listData'][0]):
+                end = len(data['listData'][0])
+
+        start, end = (start - 1), (end - 1)
+
+        clear_screen()
+        print("Page {} of {}".format(i, totalPages))
+        print(header)
+        print(astrickStr)
+        for iCnt in range(start, end):
+            counterString = str(iCnt + 1) + ")"
+            fmtStr1 = "{:<10s} {:<12d} {:<3s} {:<12d} {:<5s} {:<15d}".format(counterString,
+                                                                             data['listData'][0][iCnt], 'x',
+                                                                             data['listData'][1][iCnt], '=',
+                                                                             (data['listData'][0][iCnt] * data['listData'][1][iCnt]))
+
+            fmtStr2 = "{:<12d} {:<3s} {:<12d} {:<5s} {:<15d}".format(
+                data['listData'][0][iCnt], 'x', data['listData'][1][iCnt], '=', (data['listData'][0][iCnt] * data['listData'][1][iCnt]))
+
+            print("{} {:>5s}{:<5s} {}".format(fmtStr1, ' ', '|', fmtStr2))
+
+        print("\n")
+        print(astrickStr)
+        print("Page {} of {}".format(i, totalPages))
+        print(header)
+        print(astrickStr)
+        processQuit = (input(
+            "Press any key to continue or Q to quit...").strip().upper() or 'Y')[0]
+
+        if processQuit == 'Q':
+            break
