@@ -77,8 +77,13 @@ def perform_operations(info, action='add'):
 def perform_add_operation(info):
     msg = "Standard Python: \n"
     startExecution = time.time()
-    perform_Ops = list(
-        map(lambda x, y: (x + y), info['listData'][0], info['listData'][1]))
+    if info['listType'] == 'F':
+        perform_Ops = list(
+            map(lambda x, y: round((x + y), 2), info['listData'][0], info['listData'][1]))
+    else:
+        perform_Ops = list(
+            map(lambda x, y: (x + y), info['listData'][0], info['listData'][1]))
+
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
     msg += "Total time taken for Standard List Addition: {}\n".format(
@@ -87,8 +92,12 @@ def perform_add_operation(info):
     msg += "\nNumPy: \n"
 
     startExecution = time.time()
-    perform_Ops_NumPy = np.array(
-        info['listData'][0]) + np.array(info['listData'][1])
+    if info['listType'] == 'F':
+        perform_Ops_NumPy = np.round(np.array(
+            info['listData'][0]) + np.array(info['listData'][1]), 2)
+    else:
+        perform_Ops_NumPy = np.array(
+            info['listData'][0]) + np.array(info['listData'][1])
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
 
@@ -102,8 +111,12 @@ def perform_add_operation(info):
 def perform_sub_operation(info):
     msg = "Standard Python: \n"
     startExecution = time.time()
-    perform_Ops = list(
-        map(lambda x, y: (y - x), info['listData'][0], info['listData'][1]))
+    if info['listType'] == 'F':
+        perform_Ops = list(
+            map(lambda x, y: round((x - y), 2), info['listData'][0], info['listData'][1]))
+    else:
+        perform_Ops = list(
+            map(lambda x, y: (x - y), info['listData'][0], info['listData'][1]))
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
     msg += "Total time taken for Standard List Subtraction: {}\n".format(
@@ -112,8 +125,12 @@ def perform_sub_operation(info):
     msg += "\nNumPy: \n"
 
     startExecution = time.time()
-    perform_Ops_NumPy = np.array(
-        info['listData'][1]) - np.array(info['listData'][0])
+    if info['listType'] == 'F':
+        perform_Ops_NumPy = np.round(np.array(
+            info['listData'][0]) - np.array(info['listData'][1]), 2)
+    else:
+        perform_Ops_NumPy = np.array(
+            info['listData'][0]) - np.array(info['listData'][1])
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
 
@@ -126,8 +143,12 @@ def perform_sub_operation(info):
 def perform_mul_operation(info):  # Multiplication Operations
     msg = "Standard Python: \n"
     startExecution = time.time()
-    perform_Ops = list(
-        map(lambda x, y: (x * y), info['listData'][0], info['listData'][1]))
+    if info['listType'] == 'F':
+        perform_Ops = list(
+            map(lambda x, y: round((x * y), 2), info['listData'][0], info['listData'][1]))
+    else:
+        perform_Ops = list(
+            map(lambda x, y: (x * y), info['listData'][0], info['listData'][1]))
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
     msg += "Total time taken for Standard List Multiplication: {}\n".format(
@@ -136,8 +157,12 @@ def perform_mul_operation(info):  # Multiplication Operations
     msg += "\nNumPy: \n"
 
     startExecution = time.time()
-    perform_Ops_NumPy = np.array(
-        info['listData'][0]) * np.array(info['listData'][1])
+    if info['listType'] == 'F':
+        perform_Ops_NumPy = np.round(np.array(
+            info['listData'][0]) * np.array(info['listData'][1]), 2)
+    else:
+        perform_Ops_NumPy = np.array(
+            info['listData'][0]) * np.array(info['listData'][1])
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
 
@@ -154,7 +179,7 @@ def perform_divide_operation(info):
     msg = "Standard Python: \n"
     startExecution = time.time()
     perform_Ops = list(
-        map(lambda x, y: round((y / x), 2), info['listData'][0], info['listData'][1]))
+        map(lambda x, y: round((x / y), 2), info['listData'][0], info['listData'][1]))
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
     msg += "Total time taken for Standard List Division: {}\n".format(
@@ -164,7 +189,7 @@ def perform_divide_operation(info):
 
     startExecution = time.time()
     perform_Ops_NumPy = np.round(np.array(
-        info['listData'][1]) / np.array(info['listData'][0]), 2)
+        info['listData'][0]) / np.array(info['listData'][1]), 2)
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
 
@@ -182,8 +207,10 @@ def print_data(op, data, returndata, symbol):
     pageLen = 500
     totalPages = round(len(data['listData'][0]) / pageLen)
 
-    header = "{:61s} {:16s} {:<51s}".format(
-        'Python List', ' ', 'NumPy Array')
+    pyStr = 'Python List ((x ' + symbol + ' y) = result)'
+    npStr = 'NumPy Array ((x ' + symbol + ' y) = result)'
+    header = "{:66s} {:16s} {:<56s}".format(
+        pyStr, ' ', npStr)
     astrickStr = '*' * len(header)
 
     if totalPages <= 0:
@@ -206,16 +233,17 @@ def print_data(op, data, returndata, symbol):
 
         clear_screen()
         print("Page {} of {}".format(i, totalPages))
+        print("Total Items: {}".format(len(data['listData'][0]) - 1))
         print(header)
         print(astrickStr)
         for iCnt in range(start, end):
             counterString = str(iCnt + 1) + ")"
-            fmtStr1 = "{:<10} {:<12} {:<8} {:<12} {:<5} {:<15}".format(counterString,
+            fmtStr1 = "{:<10} {:<15} {:<8} {:<12} {:<5} {:<20}".format(counterString,
                                                                        data['listData'][0][iCnt], symbol,
                                                                        data['listData'][1][iCnt], '=',
                                                                        returndata[1][iCnt])
 
-            fmtStr2 = "{:<12} {:<8} {:<12} {:<5} {:<15}".format(data['listData'][0][iCnt], symbol,
+            fmtStr2 = "{:<12} {:<8} {:<15} {:<5} {:<20}".format(data['listData'][0][iCnt], symbol,
                                                                 data['listData'][1][iCnt], '=',
                                                                 returndata[2][iCnt])
 
@@ -224,6 +252,7 @@ def print_data(op, data, returndata, symbol):
         print("\n")
         print(astrickStr)
         print("Page {} of {}".format(i, totalPages))
+        print("Total Items: {}".format(len(data['listData'][0]) - 1))
         print(header)
         print(astrickStr)
         processQuit = (input(

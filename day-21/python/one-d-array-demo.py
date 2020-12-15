@@ -52,8 +52,8 @@ while continueProgram != "X":
     elif typeOfList == 'F' and sequentialOrRandom != 'S':
         oneDimPythonList = [np.round(np.random.uniform(
             minimum, maximum), 2) for i in range(1, maxListSize)]
-        oneDimPythonList2 = [np.random.uniform(
-            minimum, maximum) for i in range(maxListSize - 1, 0, -1)]
+        oneDimPythonList2 = [np.round(np.random.uniform(
+            minimum, maximum), 2) for i in range(maxListSize - 1, 0, -1)]
     elif sequentialOrRandom == 'S':
         oneDimPythonList = [i for i in range(1, maxListSize)]
         oneDimPythonList2 = [i for i in range(maxListSize - 1, 0, -1)]
