@@ -150,10 +150,11 @@ def perform_mul_operation(info):  # Multiplication Operations
 
 
 def perform_divide_operation(info):
+
     msg = "Standard Python: \n"
     startExecution = time.time()
     perform_Ops = list(
-        map(lambda x, y: (y / x), info['listData'][0], info['listData'][1]))
+        map(lambda x, y: round((y / x), 2), info['listData'][0], info['listData'][1]))
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
     msg += "Total time taken for Standard List Division: {}\n".format(
@@ -162,8 +163,8 @@ def perform_divide_operation(info):
     msg += "\nNumPy: \n"
 
     startExecution = time.time()
-    perform_Ops_NumPy = np.array(
-        info['listData'][1]) / np.array(info['listData'][0])
+    perform_Ops_NumPy = np.round(np.array(
+        info['listData'][1]) / np.array(info['listData'][0]), 2)
     endExecution = time.time()
     timeTakenForExecution = (endExecution - startExecution)
 
@@ -184,6 +185,9 @@ def print_data(op, data, returndata, symbol):
     header = "{:61s} {:16s} {:<51s}".format(
         'Python List', ' ', 'NumPy Array')
     astrickStr = '*' * len(header)
+
+    if totalPages <= 0:
+        totalPages = 1
 
     for i in range(1, (totalPages + 1), 1):
         start, end = 1, pageLen
@@ -206,14 +210,14 @@ def print_data(op, data, returndata, symbol):
         print(astrickStr)
         for iCnt in range(start, end):
             counterString = str(iCnt + 1) + ")"
-            fmtStr1 = "{:<10s} {:<12d} {:<8s} {:<12d} {:<5s} {:<15d}".format(counterString,
-                                                                             data['listData'][0][iCnt], symbol,
-                                                                             data['listData'][1][iCnt], '=',
-                                                                             returndata[1][iCnt])
+            fmtStr1 = "{:<10} {:<12} {:<8} {:<12} {:<5} {:<15}".format(counterString,
+                                                                       data['listData'][0][iCnt], symbol,
+                                                                       data['listData'][1][iCnt], '=',
+                                                                       returndata[1][iCnt])
 
-            fmtStr2 = "{:<12d} {:<8s} {:<12d} {:<5s} {:<15d}".format(data['listData'][0][iCnt], symbol,
-                                                                     data['listData'][1][iCnt], '=',
-                                                                     returndata[2][iCnt])
+            fmtStr2 = "{:<12} {:<8} {:<12} {:<5} {:<15}".format(data['listData'][0][iCnt], symbol,
+                                                                data['listData'][1][iCnt], '=',
+                                                                returndata[2][iCnt])
 
             print("{} {:>5s}{:<5s} {}".format(fmtStr1, ' ', '|', fmtStr2))
 
@@ -223,7 +227,7 @@ def print_data(op, data, returndata, symbol):
         print(header)
         print(astrickStr)
         processQuit = (input(
-            "Press any key to continue or Q to quit...").strip().upper() or 'Y')[0]
+            "Press any key to continue or X to quit...").strip().upper() or 'Y')[0]
 
-        if processQuit == 'Q':
+        if processQuit == 'X':
             break
