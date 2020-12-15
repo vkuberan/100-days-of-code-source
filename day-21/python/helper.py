@@ -42,18 +42,23 @@ def perform_operations(info, action='add'):
 
     op = ''
     retValue = ''
+    symbol = ''
 
     if action == 'add':
         op = "Addition"
+        symbol = '+'
         retValue = perform_add_operation(info)
     elif action == 'sub':
         op = "Subtraction"
+        symbol = '-'
         retValue = perform_sub_operation(info)
     elif action == 'mul':
         op = "Multiplication"
+        symbol = '*'
         retValue = perform_mul_operation(info)
     elif action == 'div':
         op = "Division"
+        symbol = '/'
         retValue = perform_divide_operation(info)
 
     msg = "Perform '{}' on Python Lists and on NumPy Arrays separately and then Compare their Performance".format(
@@ -66,7 +71,7 @@ def perform_operations(info, action='add'):
         "Do you want to display values of the Performed Action? Y(es) to display or any key to quit...").strip().upper() or 'Q')[0]
 
     if doYouWantToContinue == 'Y':
-        print_data(op, info, retValue)
+        print_data(op, info, retValue, symbol)
 
 
 def perform_add_operation(info):
@@ -168,7 +173,7 @@ def perform_divide_operation(info):
     return [msg, perform_Ops, perform_Ops_NumPy]
 
 
-def print_data(op, data, returndata):
+def print_data(op, data, returndata, symbol):
     clear_screen()
     tmp = op + " Results (500 rows per page)\n"
     op = tmp + "*" * len(tmp)
@@ -202,12 +207,13 @@ def print_data(op, data, returndata):
         for iCnt in range(start, end):
             counterString = str(iCnt + 1) + ")"
             fmtStr1 = "{:<10s} {:<12d} {:<8s} {:<12d} {:<5s} {:<15d}".format(counterString,
-                                                                             data['listData'][0][iCnt], 'x',
+                                                                             data['listData'][0][iCnt], symbol,
                                                                              data['listData'][1][iCnt], '=',
-                                                                             (data['listData'][0][iCnt] * data['listData'][1][iCnt]))
+                                                                             returndata[1][iCnt])
 
-            fmtStr2 = "{:<12d} {:<8s} {:<12d} {:<5s} {:<15d}".format(
-                data['listData'][0][iCnt], 'x', data['listData'][1][iCnt], '=', (data['listData'][0][iCnt] * data['listData'][1][iCnt]))
+            fmtStr2 = "{:<12d} {:<8s} {:<12d} {:<5s} {:<15d}".format(data['listData'][0][iCnt], symbol,
+                                                                     data['listData'][1][iCnt], '=',
+                                                                     returndata[2][iCnt])
 
             print("{} {:>5s}{:<5s} {}".format(fmtStr1, ' ', '|', fmtStr2))
 
